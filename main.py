@@ -72,15 +72,19 @@ def fetch_apps(category):
                 img_url = images[-1].get('label', '') if images else ''
                 
                 apps_html += f"""
-                <div style="margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px; display: flex; align-items: start;">
-                    <img src="{img_url}" style="width: 80px; height: 80px; border-radius: 18%; margin-right: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <div>
-                        <h3 style="margin: 0 0 5px 0; font-size: 18px;">{title}</h3>
-                        <p style="margin: 0 0 10px 0; color: #666; font-size: 14px;">{artist}</p>
-                        <a href="{link}" target="_blank" style="background-color: #0070c9; color: white; padding: 6px 12px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 13px;">App Store에서 보기</a>
-                    </div>
+        <div style="margin-bottom: 25px; padding: 20px; border: 1px solid #e1e4e8; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <img src="{img_url}" style="width: 70px; height: 70px; border-radius: 15px; margin-right: 15px; object-fit: cover; border: 1px solid #eee;">
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 4px 0; font-size: 1.2rem; color: #1a1a1a; font-weight: 700;">{title}</h3>
+                    <p style="margin: 0; color: #586069; font-size: 0.95rem;">{artist}</p>
                 </div>
-                """
+            </div>
+            <div style="display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid #f1f1f1; padding-top: 15px;">
+                <a href="{link}" target="_blank" style="display: inline-block; background-color: #0070c9; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 0.9rem; transition: background-color 0.2s;">App Store에서 보기</a>
+            </div>
+        </div>
+        """
             except Exception as e:
                 print(f"항목 파싱 오류: {e}")
                 continue
